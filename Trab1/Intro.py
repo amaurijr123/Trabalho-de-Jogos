@@ -7,11 +7,13 @@ pygame.font.init()
 
 
 font = font = pygame.font.Font(None, 50)
-Nome = "Seu Nome"
-rect =  (260, 100, 175, 35)
+Nome = "Amauri"
 
 random.seed(Nome)
 x, y =  random.randint(0, 500), random.randint(0, 400)
+
+text_surface = font.render(Nome, True, (0,0,0))
+rect = text_surface.get_rect(topleft=(x, y))
 
 print(y)
 
@@ -27,5 +29,5 @@ while True:
         # Desenha
         screen.fill((30, 30, 30))
         pygame.draw.rect(screen, (255,255,255), rect)
-        screen.blit(font.render(Nome, True, (0,0,0)), (x, y))
+        screen.blit(text_surface, (x, y))
         pygame.display.flip()
